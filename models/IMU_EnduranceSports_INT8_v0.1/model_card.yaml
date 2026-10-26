@@ -1,0 +1,73 @@
+schema_version: 3
+example_data: false
+
+model:
+  task: "IMU Sports Activity Classification"
+  short_name: "EnduranceSportsCNN"
+  precision: "INT8"
+  version: "0.1"
+  title: "IMU-Based Sports and Endurance Activity Detection"
+  made_by: "Ambient Scientific"
+  made_by_details: "Trained using the UCI Daily and Sports Activities dataset."
+  file_format: "INT8 TensorFlow Lite (.tflite)"
+  release_date: null
+  git_link: "https://github.com/chavibali/Endurance-Sports-Detection"
+
+use_case: |
+  Classifies a five-second IMU window into one of eight sports/endurance
+  activities using a 3-axis accelerometer and 3-axis gyroscope at 25 Hz.
+
+sensors:
+  - name: "6-axis IMU (3-axis accelerometer + 3-axis gyroscope)"
+    sampling_rate_hz: 25
+
+input:
+  shape: [1, 125, 8]
+  data_type: "int8"
+  window_ms: 5000
+  hop_ms: 5000
+
+pre_processing_steps:
+  - "Read ax, ay, az, gx, gy, and gz at 25 Hz"
+  - "Collect 125 samples in a five-second window"
+  - "Compute accelerometer and gyroscope magnitude features"
+  - "Normalize using training-set mean and standard deviation"
+  - "Quantize to int8 using TensorFlow Lite scale and zero point"
+
+classes:
+  - "Basketball"
+  - "CrossTrainer"
+  - "CyclingHorizontal"
+  - "Jumping"
+  - "Rowing"
+  - "Running"
+  - "Stepper"
+  - "WalkingFlat"
+
+output:
+  shape: [1, 8]
+  data_type: "int8"
+
+accuracy:
+  test_set: "Held-out subject p6 (2,400 five-second windows)"
+  validation_set: "Held-out subject p5 (2,400 five-second windows)"
+  split: "Training: p1-p4, p7-p8; Validation: p5; Test: p6"
+  numbers:
+    - { metric: "Validation accuracy", value: 97.71, unit: "%" }
+    - { metric: "Final test accuracy", value: 95.25, unit: "%" }
+    - { metric: "Final test macro F1", value: 95.0, unit: "%" }
+
+profiling:
+  latency_ms: 131.497
+  clock_speed_mhz: 50
+  clock_type: "PLL"
+  wtm: 8
+  opm: 16
+  power_mw: null
+  peak_power_mw: null
+
+software:
+  compiler_branch: null
+  compiler_commit: null
+  ambient_sw_branch: null
+  ambient_sw_commit: null

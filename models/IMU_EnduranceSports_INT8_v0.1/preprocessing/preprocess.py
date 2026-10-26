@@ -7,16 +7,26 @@ import pandas as pd
 # ---------------------------------------
 # 1. FILE PATHS
 # ---------------------------------------
-# This file is directly inside project root.
-PROJECT_DIR = Path(__file__).resolve().parent
+# This file lives in models/<version>/preprocessing.
+VERSION_DIR = Path(__file__).resolve().parent.parent
 
 RAW_CSV = (
-    PROJECT_DIR
+    VERSION_DIR
+    / "preprocessing"
+    / "raw"
     / "labeled_imu"
     / "generalized_sports_imu_labeled.csv"
 )
 
-OUTPUT_DIR = PROJECT_DIR / "cnn_preprocessed"
+# Temporary compatibility path while the existing raw folder is still open.
+if not RAW_CSV.exists():
+    RAW_CSV = (
+        VERSION_DIR.parents[1]
+        / "labeled_imu"
+        / "generalized_sports_imu_labeled.csv"
+    )
+
+OUTPUT_DIR = VERSION_DIR / "preprocessing" / "processed" / "cnn_preprocessed"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
 OUTPUT_FILE = OUTPUT_DIR / "cnn_imu_windows.npz"

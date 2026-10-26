@@ -19,17 +19,21 @@ from sklearn.preprocessing import LabelEncoder
 # ---------------------------------------
 # 1. FILE PATHS
 # ---------------------------------------
-# This file is directly inside project root.
-PROJECT_DIR = Path(__file__).resolve().parent
+# This file lives in models/<version>/training.
+VERSION_DIR = Path(__file__).resolve().parent.parent
 
 PREPROCESSED_FILE = (
-    PROJECT_DIR
+    VERSION_DIR
+    / "preprocessing"
+    / "processed"
     / "cnn_preprocessed"
     / "cnn_imu_windows.npz"
 )
 
-MODEL_DIR = PROJECT_DIR / "trained_cnn_model"
+MODEL_DIR = VERSION_DIR / "model"
 MODEL_DIR.mkdir(exist_ok=True)
+EVALUATION_DIR = VERSION_DIR / "evaluation"
+EVALUATION_DIR.mkdir(exist_ok=True)
 
 
 # ---------------------------------------
@@ -285,7 +289,7 @@ def main():
     plt.tight_layout()
 
     plt.savefig(
-        MODEL_DIR / "validation_confusion_matrix_p7.png",
+        EVALUATION_DIR / "validation_confusion_matrix_p5.png",
         dpi=200
     )
 
@@ -344,7 +348,7 @@ def main():
     )
 
     with open(
-        MODEL_DIR / "cnn_results.txt",
+        EVALUATION_DIR / "cnn_results.txt",
         "w",
         encoding="utf-8"
     ) as file:
@@ -380,7 +384,7 @@ def main():
     plt.tight_layout()
 
     plt.savefig(
-        MODEL_DIR / "cnn_confusion_matrix.png",
+        EVALUATION_DIR / "cnn_confusion_matrix.png",
         dpi=200
     )
 
@@ -408,7 +412,7 @@ def main():
     plt.tight_layout()
 
     plt.savefig(
-        MODEL_DIR / "cnn_accuracy_graph.png",
+        EVALUATION_DIR / "cnn_accuracy_graph.png",
         dpi=200
     )
 
@@ -416,7 +420,7 @@ def main():
 
     print("\nCNN training completed.")
     print("Saved model and results in:")
-    print(MODEL_DIR)
+print(VERSION_DIR)
 
 
 if __name__ == "__main__":

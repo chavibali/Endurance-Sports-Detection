@@ -4,13 +4,13 @@ import numpy as np
 import tensorflow as tf
 
 
-PROJECT_DIR = Path(__file__).resolve().parent
-MODEL_DIR = PROJECT_DIR / "trained_cnn_model"
-PREPROCESSED_FILE = PROJECT_DIR / "cnn_preprocessed" / "cnn_imu_windows.npz"
+VERSION_DIR = Path(__file__).resolve().parent.parent
+MODEL_DIR = VERSION_DIR / "model"
+PREPROCESSED_FILE = VERSION_DIR / "preprocessing" / "processed" / "cnn_preprocessed" / "cnn_imu_windows.npz"
 
-KERAS_MODEL = MODEL_DIR / "sports_activity_cnn.keras"
-H5_MODEL = MODEL_DIR / "sports_activity_cnn.h5"
-INT8_TFLITE_MODEL = MODEL_DIR / "sports_activity_cnn_int8.tflite"
+KERAS_MODEL = MODEL_DIR / "IMU_EnduranceSports_INT8_v0.1.keras"
+H5_MODEL = MODEL_DIR / "IMU_EnduranceSports_INT8_v0.1.h5"
+INT8_TFLITE_MODEL = MODEL_DIR / "IMU_EnduranceSports_INT8_v0.1.tflite"
 NORMALIZATION_FILE = MODEL_DIR / "normalization_values.npz"
 
 

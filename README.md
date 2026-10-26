@@ -49,16 +49,20 @@ Results:
 ## Repository structure
 
 ```text
-preprocess_cnn.py          # Converts labelled raw IMU data into CNN windows
-train_cnn_model.py         # Trains and evaluates the 1D-CNN
-export_model_formats.py    # Exports the trained model to H5 and INT8 TFLite
-trained_cnn_model/         # Model, labels, normalization data and evaluation plots
+models/
+└── IMU_EnduranceSports_INT8_v0.1/
+    ├── model_card.yaml
+    ├── model/             # INT8 TFLite deployment model and supporting artifacts
+    ├── preprocessing/     # Preprocessing code, local raw data and derived windows
+    ├── training/          # Training and format-export scripts
+    ├── evaluation/        # Metrics and confusion-matrix figures
+    └── release/           # Generated release documents
 ```
 
 ## Model artifacts
 
-- `sports_activity_cnn.h5` — Keras H5 model
-- `sports_activity_cnn_int8.tflite` — fully INT8 TensorFlow Lite deployment model
+- `IMU_EnduranceSports_INT8_v0.1.h5` — Keras H5 model
+- `IMU_EnduranceSports_INT8_v0.1.tflite` — fully INT8 TensorFlow Lite deployment model
 - `normalization_values.npz` — training normalization values
 - `label_encoder.pkl` — output-class label encoder
 
