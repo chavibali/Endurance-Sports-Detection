@@ -1,0 +1,17 @@
+Validation Accuracy: 97.71%
+Final Test Accuracy: 95.25%
+
+                   precision    recall  f1-score   support
+
+       Basketball       1.00      0.95      0.97       300
+     CrossTrainer       0.99      0.98      0.99       300
+CyclingHorizontal       0.81      0.91      0.86       300
+          Jumping       1.00      0.99      1.00       300
+           Rowing       0.97      0.79      0.87       300
+          Running       1.00      1.00      1.00       300
+          Stepper       0.96      0.99      0.98       300
+      WalkingFlat       0.91      1.00      0.95       300
+
+         accuracy                           0.95      2400
+        macro avg       0.96      0.95      0.95      2400
+     weighted avg       0.96      0.95      0.95      2400

@@ -1,0 +1,17 @@
+# Python environment and cache
+.venv/
+__pycache__/
+*.py[cod]
+
+# Raw and derived datasets (too large for normal GitHub uploads)
+labeled_imu/
+cnn_preprocessed/
+processed_data/
+
+# Local logs
+*.log
+
+# Operating-system/editor files
+.DS_Store
+Thumbs.db
+.vscode/
