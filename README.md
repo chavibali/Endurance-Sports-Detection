@@ -50,7 +50,7 @@ Results:
 
 ```text
 models/
-└── IMU_EnduranceSports_INT8_v0.1/
+└── IMU_EnduranceSports_INT8_v1.0/
     ├── model_card.yaml
     ├── model/             # INT8 TFLite deployment model and supporting artifacts
     ├── preprocessing/     # Preprocessing code, local raw data and derived windows
@@ -61,8 +61,8 @@ models/
 
 ## Model artifacts
 
-- `IMU_EnduranceSports_INT8_v0.1.h5` — Keras H5 model
-- `IMU_EnduranceSports_INT8_v0.1.tflite` — fully INT8 TensorFlow Lite deployment model
+- `IMU_EnduranceSports_INT8_v1.0.h5` — Keras H5 model
+- `IMU_EnduranceSports_INT8_v1.0.tflite` — fully INT8 TensorFlow Lite deployment model
 - `normalization_values.npz` — training normalization values
 - `label_encoder.pkl` — output-class label encoder
 

@@ -5,7 +5,7 @@ model:
   task: "IMU Sports Activity Classification"
   short_name: "EnduranceSportsCNN"
   precision: "INT8"
-  version: "0.1"
+  version: "1.0"
   title: "IMU-Based Sports and Endurance Activity Detection"
   made_by: "Ambient Scientific"
   made_by_details: "Trained using the UCI Daily and Sports Activities dataset."

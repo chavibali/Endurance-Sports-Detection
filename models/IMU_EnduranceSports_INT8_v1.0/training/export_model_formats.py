@@ -8,9 +8,9 @@ VERSION_DIR = Path(__file__).resolve().parent.parent
 MODEL_DIR = VERSION_DIR / "model"
 PREPROCESSED_FILE = VERSION_DIR / "preprocessing" / "processed" / "cnn_preprocessed" / "cnn_imu_windows.npz"
 
-KERAS_MODEL = MODEL_DIR / "IMU_EnduranceSports_INT8_v0.1.keras"
-H5_MODEL = MODEL_DIR / "IMU_EnduranceSports_INT8_v0.1.h5"
-INT8_TFLITE_MODEL = MODEL_DIR / "IMU_EnduranceSports_INT8_v0.1.tflite"
+KERAS_MODEL = MODEL_DIR / "IMU_EnduranceSports_INT8_v1.0.keras"
+H5_MODEL = MODEL_DIR / "IMU_EnduranceSports_INT8_v1.0.h5"
+INT8_TFLITE_MODEL = MODEL_DIR / "IMU_EnduranceSports_INT8_v1.0.tflite"
 NORMALIZATION_FILE = MODEL_DIR / "normalization_values.npz"
 
 
